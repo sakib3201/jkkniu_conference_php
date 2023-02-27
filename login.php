@@ -8,7 +8,8 @@ session_start();
 <?php
 if (isset($_POST['login'])) {
     extract($_POST);
-    $sql = "SELECT * FROM author_information WHERE author_email='$email' && author_password='$password'";
+    $hash_password = md5($password);
+    $sql = "SELECT * FROM author_information WHERE author_email='$email' && author_password='$hash_password'";
     $sql_qry = mysqli_query($conn, $sql);
     if (mysqli_num_rows($sql_qry) > 0) {
         $row = mysqli_fetch_assoc($sql_qry);

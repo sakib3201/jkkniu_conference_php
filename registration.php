@@ -5,22 +5,23 @@
 <?php
 if (isset($_POST['signup'])) {
     extract($_POST);
-    echo $name;
+    $hash_password = md5($password);
     if ($password === $confirm_password) {
-        $insert_data = "INSERT INTO `author_information`(`author_name`,`author_designation`, `author_university_name`, `author_email`, `author_contact_no`, `author_country`,`author_password`) VALUES ('$name','$designation','$university','$email','$contact','$country','$password')";
+        $insert_data = "INSERT INTO `author_information`(`author_name`,`author_designation`, `author_university_name`, `author_email`, `author_contact_no`, `author_country`,`author_password`) VALUES ('$name','$designation','$university','$email','$contact','$country','$hash_password')";
         $insert_query = mysqli_query($conn, $insert_data);
 
         if ($insert_query) {
-            header('location: index.php');
+            header('location: login.php');
         } else {
             echo 'Data is not inserted yet!';
         }
     } else {
         echo 'Both passwords are not Matched';
     }
-} else {
-    echo 'Form is not submitted yet!';
 }
+//  else {
+//     echo 'Form is not submitted yet!';
+// }
 ?>
 
 <div class="container my-5">
