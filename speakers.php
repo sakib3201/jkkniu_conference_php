@@ -8,9 +8,9 @@
                     <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University<br />
-                        Speaking on <b class="secondary_color">Random research on random topic</b></p>
+                    <h5 class="card-title primary_color">Speaker</h5>
+                    <p class="card-text">Unknown University<br />
+                        Speaking on <b class="secondary_color">Research on Unknown topic</b></p>
                 </div>
                 <ul class="social">
                     <li>
@@ -42,9 +42,9 @@
                     <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University<br />
-                        Speaking on <b class="secondary_color">Random research on random topic</b></p>
+                    <h5 class="card-title primary_color">Speaker</h5>
+                    <p class="card-text">Unknown University<br />
+                        Speaking on <b class="secondary_color">Research on Unknown topic</b></p>
                 </div>
                 <ul class="social">
                     <li>
@@ -76,9 +76,9 @@
                     <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University<br />
-                        Speaking on <b class="secondary_color">Random research on random topic</b></p>
+                    <h5 class="card-title primary_color">Speaker</h5>
+                    <p class="card-text">Unknown University<br />
+                        Speaking on <b class="secondary_color">Research on Unknown topic</b></p>
                 </div>
                 <ul class="social">
                     <li>

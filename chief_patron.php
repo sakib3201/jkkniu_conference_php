@@ -1,8 +1,8 @@
-<div class="container mt-5 d-flex justify-content-center align-items-center" data-aos="fade-up">
+<div class="container mt-5" data-aos="fade-up">
     <div class="card mb-3 p-3 shadow" style="min-width: 50vw">
         <div class="row g-0">
-            <div class="col-md-4">
-                <img src="Images/logo.png" alt="vc_img" class="img-fluid rounded-pill ms-md-5" />
+            <div class="col-md-4 d-flex justify-content-center">
+                <img src="Images/soumitra_sekhar_sir.jpg" alt="vc_img" class="img-fluid rounded-pill ms-md-5" style="width: 300px" />
             </div>
             <div class="col-md-8 d-flex justify-content-center align-items-center">
                 <div class="card-body ms-md-5 ps-md-5">

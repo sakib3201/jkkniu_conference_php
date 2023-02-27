@@ -13,7 +13,7 @@
         academics, and practitioners across the world. In this context,
         Jatiya Kabi Kazi Nazrul Islam University is going to host the 2nd
         international conference on Technology, Business, and Justice,
-        ICTBJ-2023, the first of its kind.{" "}
+        ICTBJ-2023, the first of its kind.
     </p>
 
     <p class="text-muted text-justify" style="text-align: justify" data-aos="fade-right">
@@ -37,7 +37,7 @@
                 <div class="card-header text-center primary_bg fw-bold text-white">
                     Track-1
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="height: 70vh">
                     <h5 class="card-title">Science</h5>
                     <hr />
                     <ul class="card-text">
@@ -67,7 +67,7 @@
                 <div class="card-header text-center primary_bg fw-bold text-white">
                     Track-2
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="height: 70vh">
                     <h5 class="card-title">Business</h5>
                     <hr />
                     <ul class="card-text">
@@ -97,7 +97,7 @@
                 <div class="card-header text-center primary_bg fw-bold text-white">
                     Track-3
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="height: 70vh">
                     <h5 class="card-title">Law</h5>
                     <hr />
                     <ul class="card-text">

@@ -6,8 +6,8 @@
             <div class="card committee_hover">
                 <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University</p>
+                    <h5 class="card-title primary_color">Member</h5>
+                    <p class="card-text">Jatiya Kabi Kazi Nazrul Islam University</p>
                 </div>
             </div>
         </div>
@@ -15,8 +15,8 @@
             <div class="card committee_hover">
                 <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University</p>
+                    <h5 class="card-title primary_color">Member</h5>
+                    <p class="card-text">Jatiya Kabi Kazi Nazrul Islam University</p>
                 </div>
             </div>
         </div>
@@ -24,8 +24,8 @@
             <div class="card committee_hover">
                 <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University</p>
+                    <h5 class="card-title primary_color">Member</h5>
+                    <p class="card-text">Jatiya Kabi Kazi Nazrul Islam University</p>
                 </div>
             </div>
         </div>
@@ -33,8 +33,8 @@
             <div class="card committee_hover">
                 <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh">
                 <div class="card-body">
-                    <h5 class="card-title primary_color">Inactive</h5>
-                    <p class="card-text">Random University</p>
+                    <h5 class="card-title primary_color">Member</h5>
+                    <p class="card-text">Jatiya Kabi Kazi Nazrul Islam University</p>
                 </div>
             </div>
         </div>
