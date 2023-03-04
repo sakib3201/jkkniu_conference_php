@@ -72,8 +72,23 @@ if (isset($_POST['submit'])) {
 
             // sent mail
             $receiver = $_SESSION['author_email'];
-            $subject = "New Paper Submission";
-            $body = '<h5>Dear Sir/Madam, <br />You have successfully submitted your new paper. Please check your paper status. <br /> <br /> Best Regards, JKKNIU Conference Organization</h5>';
+            $subject = "New Manuscript Submission";
+            $body = '<p>Dear Author(s),<br/>Thank you very much for uploading the following manuscript to the ICTBJ-2023
+            submission system. We shall be in touch with you when the review of the paper will be completed.<br/><br/>
+            <b>Manuscript ID:</b> ICTBJ-2023-1 <br/>
+            <b>Track of manuscript:</b> Technology <br/>
+            <b>Title:</b> Efficient Private Conjunctive Query Protocol Over Encrypted Data <br/>
+            <b>Authors:</b> Tushar Kanti Saha, Takeshi Koshiba <br/>
+            <b>Received:</b> 15 December 2020 <br/>
+            <b>E-mails:</b> tushar@jkkniu.edu.bd, tkoshiba@waseda.jp <br/><br/><br/>
+
+            Best Regards,<br/>
+            Professor Dr. Tushar Kanti Saha,<br/>
+            Convener,<br/>
+            ICTBJ-2023 Organizing Committee <br/>
+            Trishal, Mymensingh, Bangladesh <br/>
+            E-Mail: ictbj@.com <br/>
+            Tel. +8801711028510 (WhatsApp)</p>';
             $send_mail = send_mail($receiver, $subject, $body);
 ?>
             <script>
