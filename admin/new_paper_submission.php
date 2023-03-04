@@ -55,16 +55,17 @@ if (isset($_POST['submit'])) {
         $paper_title = $_POST['paper_title'];
         $paper_keyword = $_POST['paper_keywords'];
         $track = $_POST['track'];
-        echo $track;
+        // echo $track;
         // $paper_abstract = $_SESSION['paper_abstract'];
         // $paper_type = $_SESSION['paper_type'];
         $input_field_name = $_SESSION['input_field_name'];
         $input_field_affiliation = $_SESSION['input_field_affiliation'];
         // $input_field_designation = $_SESSION['input_field_designation'];
         $input_field_email = $_SESSION['input_field_email'];
+        $timestamps = date("Y-m-d h:i:s", $paper_id);
         // echo $paper_title;
 
-        $insert_qry = "INSERT INTO `new_paper`(`paper_id`, `author_id`,`paper_title`, `paper_keywords`,`track`,`authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`) VALUES ('$paper_id','$_SESSION[author_id]','$paper_title','$paper_keyword','$track','$input_field_name','$input_field_affiliation','$input_field_email','$manuscript_pdf_file_name','1','1')";
+        $insert_qry = "INSERT INTO `new_paper`(`paper_id`, `author_id`,`paper_title`, `paper_keywords`,`track`,`authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`,`timestamps`) VALUES ('$paper_id','$_SESSION[author_id]','$paper_title','$paper_keyword','$track','$input_field_name','$input_field_affiliation','$input_field_email','$manuscript_pdf_file_name','1','1',$timestamps)";
 
         $run_insert_qry = mysqli_query($conn, $insert_qry);
         if ($run_insert_qry) {
@@ -75,12 +76,12 @@ if (isset($_POST['submit'])) {
             $subject = "New Manuscript Submission";
             $body = '<p>Dear Author(s),<br/>Thank you very much for uploading the following manuscript to the ICTBJ-2023
             submission system. We shall be in touch with you when the review of the paper will be completed.<br/><br/>
-            <b>Manuscript ID:</b> ICTBJ-2023-1 <br/>
-            <b>Track of manuscript:</b> Technology <br/>
-            <b>Title:</b> Efficient Private Conjunctive Query Protocol Over Encrypted Data <br/>
-            <b>Authors:</b> Tushar Kanti Saha, Takeshi Koshiba <br/>
-            <b>Received:</b> 15 December 2020 <br/>
-            <b>E-mails:</b> tushar@jkkniu.edu.bd, tkoshiba@waseda.jp <br/><br/><br/>
+            <b>Manuscript ID:</b> ICTBJ-2023-' . $paper_id . '<br/>
+            <b>Track of manuscript:</b>' . $track . '<br/>
+            <b>Title:</b>' . $paper_title . '<br/>
+            <b>Authors:</b>' . $input_field_name . '<br/>
+            <b>Received:</b>' . $current_time . '<br/>
+            <b>E-mails:</b>' . $input_field_email . '<br/><br/><br/>
 
             Best Regards,<br/>
             Professor Dr. Tushar Kanti Saha,<br/>

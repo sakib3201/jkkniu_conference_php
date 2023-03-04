@@ -6,49 +6,75 @@
 
 <?php
 if (isset($_POST['login'])) {
-    $data = $_POST;
-    // print_r($data);
-    // echo "<br><br>";
-    $loginArr = validateLoginData($conn, $data);
-    extract($loginArr);
-    // check if credentials are okay, and email is verified
-    $sql = "SELECT * FROM author_information WHERE author_email='$email'";
-    $result = mysqli_query($conn, $sql);
+    $matched = 0;
+    if (isset($_POST['captcha']) && ($_POST['captcha'] != "")) {
+        // Validation: Checking entered captcha code with the generated captcha code
+        if (strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0) {
+            // Note: the captcha code is compared case insensitively.
+            // if you want case sensitive match, check above with strcmp()
+            $status = "<p style='color:#FFFFFF; font-size:20px'>
+        <span style='background-color:#FF0000;'>Entered captcha code does not match! 
+        Kindly try again.</span></p>";
+            $matched = 0;
+        } else {
+            $status = "<p style='color:#FFFFFF; font-size:20px'>
+        <span style='background-color:#46ab4a;'>Your captcha code is matched.</span>
+        </p>";
+            $matched = 1;
+        }
 
-    if (mysqli_num_rows($result) > 0) {
-        $user = mysqli_fetch_assoc($result);
-        extract($user);
-        if (password_verify($password, $author_password)) {
-            // $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
-            // echo $encrypted_password;
-            $sql_pass = "SELECT * FROM author_information WHERE author_password='$author_password'";
-            $result_pass = mysqli_query($conn, $sql_pass);
+        if ($matched === 1) {
+            echo $status;
+            $data = $_POST;
+            // print_r($data);
+            // echo "<br><br>";
+            $loginArr = validateLoginData($conn, $data);
+            extract($loginArr);
+            // check if credentials are okay, and email is verified
+            $sql = "SELECT * FROM author_information WHERE author_email='$email'";
+            $result = mysqli_query($conn, $sql);
 
-            if (mysqli_num_rows($result_pass) > 0) {
+            if (mysqli_num_rows($result) > 0) {
+                $user = mysqli_fetch_assoc($result);
+                extract($user);
+                if (password_verify($password, $author_password)) {
+                    // $encrypted_password = password_hash($password, PASSWORD_DEFAULT);
+                    // echo $encrypted_password;
+                    $sql_pass = "SELECT * FROM author_information WHERE author_password='$author_password'";
+                    $result_pass = mysqli_query($conn, $sql_pass);
 
-                // if (!empty($remember)) {
-                //     setcookie("email", $email, time() + 3600);
-                //     setcookie("password", $password, time() + 3600);
-                // } else {
-                //     setcookie("email", "");
-                //     setcookie("password", "");
-                // }
-                // echo "<p>Your login logic here</p>";
-                // if ($email && $password) {
-                $_SESSION['author_id'] = $author_id;
-                $_SESSION['author_name'] = $author_name;
-                $_SESSION['author_email'] = $author_email;
-                header("Location: author/index.php");
-                exit();
+                    if (mysqli_num_rows($result_pass) > 0) {
+
+                        // if (!empty($remember)) {
+                        //     setcookie("email", $email, time() + 3600);
+                        //     setcookie("password", $password, time() + 3600);
+                        // } else {
+                        //     setcookie("email", "");
+                        //     setcookie("password", "");
+                        // }
+                        // echo "<p>Your login logic here</p>";
+                        // if ($email && $password) {
+                        $_SESSION['author_id'] = $author_id;
+                        $_SESSION['author_name'] = $author_name;
+                        $_SESSION['author_email'] = $author_email;
+                        header("Location: author/index.php");
+                        exit();
+                    }
+                } else {
+                    echo "<p>Invalid Password</p>";
+                }
+            } else {
+                echo "<p>Invalid Email</p>";
             }
         } else {
-            echo "<p>Invalid Password</p>";
+            echo $status;
         }
-    } else {
-        echo "<p>Invalid Email</p>";
     }
     // }
 }
+// else {
+//     echo "<label class='text-danger'>Invalid captcha!</label>";
+// }
 ?>
 
 <div class="container my-5 d-flex justify-content-center">
@@ -70,13 +96,15 @@ if (isset($_POST['login'])) {
                 </div>
 
                 <div class="mb-3">
-                    <div class="custom-control custom-checkbox">
-                        <!-- <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["member_login"])) { ?> checked <?php } ?> /> <label for="remember-me">Remember me</label> -->
-                        <!-- <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember" />
-                    <label class="custom-control-label" for="customCheck1">
-                        Remember me
-                    </label> -->
-                    </div>
+                    <label for="captcha">Enter Captcha</label><br />
+                    <input type="text" class="form-control" name="captcha" id="captcha" required />
+                    <p class="mt-2">
+                        <img src="captcha.php?rand=<?php echo rand(); ?>" id="captcha_image" />
+                    </p>
+                    <p>Can't read the image?
+                        <a href='javascript: refreshCaptcha();'>click here</a>
+                        to refresh
+                    </p>
                 </div>
 
                 <div class="">
@@ -92,6 +120,14 @@ if (isset($_POST['login'])) {
                     <a href="registration.php">sign up?</a>
                 </p>
             </form>
+            <script>
+                function refreshCaptcha() {
+                    var img = document.images['captcha_image'];
+                    img.src = img.src.substring(
+                        0, img.src.lastIndexOf("?")
+                    ) + "?rand=" + Math.random() * 1000;
+                }
+            </script>
             <script src="validate_client_side.js"></script>
         </div>
     </div>
