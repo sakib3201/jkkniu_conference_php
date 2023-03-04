@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2023 at 12:50 AM
+-- Generation Time: Mar 02, 2023 at 10:31 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -75,17 +75,14 @@ CREATE TABLE `committee` (
 CREATE TABLE `new_paper` (
   `id` int(11) NOT NULL,
   `paper_id` varchar(200) NOT NULL DEFAULT current_timestamp(),
+  `paper_title` varchar(200) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `paper_title` varchar(1000) NOT NULL,
-  `paper_abstract` varchar(5000) NOT NULL,
   `paper_keywords` varchar(1000) NOT NULL,
-  `paper_type` varchar(50) NOT NULL,
+  `track` varchar(100) NOT NULL,
   `authors_name` varchar(1000) NOT NULL,
   `authors_affiliation` varchar(1000) NOT NULL,
-  `authors_designation` varchar(1000) NOT NULL,
   `authors_email` varchar(2000) NOT NULL,
   `manuscript_pdf` varchar(300) NOT NULL,
-  `manuscript_image` varchar(300) NOT NULL,
   `paper_status` int(2) NOT NULL,
   `timestamps` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `count` int(11) NOT NULL
@@ -95,8 +92,19 @@ CREATE TABLE `new_paper` (
 -- Dumping data for table `new_paper`
 --
 
-INSERT INTO `new_paper` (`id`, `paper_id`, `author_id`, `paper_title`, `paper_abstract`, `paper_keywords`, `paper_type`, `authors_name`, `authors_affiliation`, `authors_designation`, `authors_email`, `manuscript_pdf`, `manuscript_image`, `paper_status`, `timestamps`, `count`) VALUES
-(1, '1677540431', 1, 'First Paper', 'Data Structure and Algorithms', 'Algo,DS', 'original research(full paper)', 'Dr. Tushar Kanti Saha,Dr. Uzzal Kuman Pradhan', 'JKKNIU research society,JKKNIU research society', 'Professor,Professor', 'mkrakib328@gmail.com,mkrcoding1998@gmail.com', '1677540431.pdf', '1677540431.jpg', 1, '2023-02-27 23:27:11', 1);
+INSERT INTO `new_paper` (`id`, `paper_id`, `paper_title`, `author_id`, `paper_keywords`, `track`, `authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `timestamps`, `count`) VALUES
+(3, '1677564321', 'Data Structure and Algorithm', 3, 'DS,Algo', '', 'Dr. Tushar Kanti Saha,Dr. Uzzal Kumar Pradhan', 'JKKNIU Research Society,JKKNIU Research Society', 'tusharkantisaha@gmail.com,uzzalkumarpradhan@gmail.com', '1677564321.pdf', 1, '2023-02-28 06:05:21', 1),
+(6, '1677572001', 'XYZ', 3, '', '', 'MR', 'JKNNIU', 'mr@gmail.com', '1677572001.pdf', 1, '2023-02-28 08:13:21', 1),
+(8, '1677573422', 'ABC', 3, '', '', 'Sakib', 'JKKNIU', 'sakib@gmail.com', '1677573422.pdf', 1, '2023-02-28 08:37:02', 1),
+(9, '1677573689', 'Rakib', 3, '', '', 'Rak', 'JKKNIU', 'rak@gmail.com', '1677573689.pdf', 1, '2023-02-28 08:41:29', 1),
+(10, '1677574661', 'Sakib', 3, '', '', 'sakib', 'JKKNIU', 'sakib@gmail.com', '1677574661.pdf', 1, '2023-02-28 08:57:41', 1),
+(11, '1677741843', 'SBY', 3, '', '', 'Sabur', 'JKKNIU', 'sabur@gmail.com', '1677741843.doc', 1, '2023-03-02 07:24:03', 1),
+(12, '1677745597', 'Science', 3, 'x', '', 'x', 'x', 'x@gmail.com', '1677745597.doc', 1, '2023-03-02 08:26:37', 1),
+(13, '1677745692', 'x', 3, '', 'Science', 'x', 'x', 'x@gmail.com', '1677745692.doc', 1, '2023-03-02 08:28:12', 1),
+(14, '1677746862', 's', 3, '', 'Business', 's', 's', 's@gmail.com', '1677746862.doc', 1, '2023-03-02 08:47:42', 1),
+(15, '1677747329', 'qwer', 3, '', 'Business', 'kazi', 'JKKNIU', 'kazi@gmail.com', '1677747329.doc', 1, '2023-03-02 08:55:29', 1),
+(16, '1677747466', 'qwer', 3, '', 'Business', 'qwer', 'jkkniu', 'qwer@gmail.com', '1677747466.doc', 1, '2023-03-02 08:57:46', 1),
+(17, '1677748469', 'd', 3, '', 'Law', 'd', 'd', 'd@gmail.com', '1677748469.doc', 1, '2023-03-02 09:14:29', 1);
 
 -- --------------------------------------------------------
 
@@ -166,7 +174,7 @@ ALTER TABLE `committee`
 -- AUTO_INCREMENT for table `new_paper`
 --
 ALTER TABLE `new_paper`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `speakers`

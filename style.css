@@ -521,8 +521,8 @@ ol > li > .details {
   background: rgba(255, 110, 5, 0.5);
 }
 
-/* @media screen and ((min-height: 600px) and (max-height: 950px)) {
-  .home-banner {
-    top: 20%;
+/* @media screen and (max-width: 480px) {
+  .container-fluid .card-width {
+    width: 100%;
   }
 } */

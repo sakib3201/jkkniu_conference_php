@@ -37,7 +37,7 @@
                 <div class="card-header text-center primary_bg fw-bold text-white">
                     Track-1
                 </div>
-                <div class="card-body" style="height: 70vh">
+                <div class="card-body" style="height: 80vh">
                     <h5 class="card-title">Science</h5>
                     <hr />
                     <ul class="card-text">
@@ -67,7 +67,7 @@
                 <div class="card-header text-center primary_bg fw-bold text-white">
                     Track-2
                 </div>
-                <div class="card-body" style="height: 70vh">
+                <div class="card-body" style="height: 80vh">
                     <h5 class="card-title">Business</h5>
                     <hr />
                     <ul class="card-text">
@@ -97,7 +97,7 @@
                 <div class="card-header text-center primary_bg fw-bold text-white">
                     Track-3
                 </div>
-                <div class="card-body" style="height: 70vh">
+                <div class="card-body" style="height: 80vh">
                     <h5 class="card-title">Law</h5>
                     <hr />
                     <ul class="card-text">

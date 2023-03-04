@@ -45,7 +45,7 @@
         <h3 style="color:darkred" data-aos="fade-up-right" align="center">Coming Soon</h3>
     </section>
 
-    <section>
+    <section class="HomepageSection mt-5" id="EventVenue">
         <?php include_once('event_venue.php') ?>
     </section>
 
