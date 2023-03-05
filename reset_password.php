@@ -13,12 +13,27 @@ if (isset($_POST['submit_password'])) {
         if ($encrypted_password !== $_SESSION['author_password']) {
             $update = "UPDATE author_information SET author_password='$encrypted_password' WHERE author_email='$email'";
             $update_qry = mysqli_query($conn, $update);
-            header("location: login.php");
+
+            echo "<p class='text-success text-bold text-center fs-5 mt-3'>Your password has been updated successfully</p>";
+?>
+            <div class="container my-5 d-flex justify-content-center">
+                <div class="col-md-5 col-12">
+                    <div class="card rounded m-auto py-4 px-5 shadow">
+                        <h3 class="text-center">You can login now</h3>
+                        <div class="mt-3">
+                            <a href='login.php' class='btn btn-primary'>Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<?php
+            // header("location: login.php");
+            // ob_end_flush();
         } else {
-            echo "<p>Old password is not allowed</p>";
+            echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Old password is not allowed</p>";
         }
     } else {
-        echo "<p>Password doesn't match</p>";
+        echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Both passwords are not Matched.</p>";
     }
 }
 ?>

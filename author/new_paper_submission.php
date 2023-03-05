@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     // echo $manuscript_pdf_file_tmp_name;
     $path_info = pathinfo($manuscript_pdf_file_name, PATHINFO_EXTENSION);
     // echo $path_info;
-    $manuscript_pdf_file_name = time() . ".doc";
+    $manuscript_pdf_file_name = time() . ".$path_info";
     $manuscript_pdf_file_type = $_FILES['manuscript_pdf']['type'];
     // print_r($_FILES['manuscript_pdf']);
 
@@ -66,10 +66,11 @@ if (isset($_POST['submit'])) {
 
         $timestamps = date("Y-m-d h:i:s", $paper_id);
         $current_time = date("d F, Y", $paper_id);
+        $current_year = date("Y", $paper_id);
         // echo $current_time;
         // echo $paper_title;
 
-        $select_from_new_paper = "SELECT * FROM `new_paper`";
+        $select_from_new_paper = "SELECT * FROM `new_paper` WHERE author_id='$_SESSION[author_id]'";
         $run_select_from_new_paper = mysqli_query($conn, $select_from_new_paper);
         if (mysqli_num_rows($run_select_from_new_paper) > 0) {
             $row = mysqli_fetch_assoc($run_select_from_new_paper);
@@ -81,46 +82,6 @@ if (isset($_POST['submit'])) {
             echo $bool;
             if ($bool) {
                 echo "<p>One author can upload only one paper</p>";
-            } else {
-                $insert_qry = "INSERT INTO `new_paper`(`paper_id`, `author_id`,`paper_title`, `paper_keywords`,`track`,`authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`,`timestamps`) VALUES ('$paper_id','$_SESSION[author_id]','$paper_title','$paper_keyword','$track','$input_field_name','$input_field_affiliation','$input_field_email','$manuscript_pdf_file_name','1','1','$timestamps')";
-
-                $run_insert_qry = mysqli_query($conn, $insert_qry);
-                if ($run_insert_qry) {
-                    move_uploaded_file($_FILES['manuscript_pdf']['tmp_name'], 'document_for_manuscript/' . $manuscript_pdf_file_name);
-
-                    // sent mail
-                    $receiver = $_SESSION['author_email'];
-                    $subject = "New Manuscript Submission";
-                    $body = '<p>Dear Author(s),<br/>Thank you very much for uploading the following manuscript to the ICTBJ-2023
-                submission system. We shall be in touch with you when the review of the paper will be completed.<br/><br/>
-                <b>Manuscript ID:</b> ICTBJ-2023-' . $paper_id . '<br/>
-                <b>Track of manuscript:</b> ' . $track . '<br/>
-                <b>Title:</b> ' . $paper_title . '<br/>
-                <b>Authors:</b> ' . $input_field_name . '<br/>
-                <b>Received:</b> ' . $current_time . '<br/>
-                <b>E-mails:</b> ' . $input_field_email . '<br/><br/><br/>
-    
-                Best Regards,<br/>
-                Professor Dr. Tushar Kanti Saha,<br/>
-                Convener,<br/>
-                ICTBJ-2023 Organizing Committee <br/>
-                Trishal, Mymensingh, Bangladesh <br/>
-                E-Mail: <a href="ictbj@.com">ictbj@.com</a> <br/>
-                Tel. +8801711028510 (WhatsApp)</p>';
-                    $send_mail = send_mail($receiver, $subject, $body);
-?>
-                    <script>
-                        // let text = "Do you really want to submit the paper?";
-                        // if (confirm(text) == true) {
-                        window.alert("Your Paper Has Successfully Submitted. Please check mail for further instructions");
-                        window.location = "new_papers.php";
-                        // }
-                        // else{
-                        //     window.location = "new_paper_submission.php";
-                        // }
-                    </script>
-                <?php
-                }
             }
         } else {
             $insert_qry = "INSERT INTO `new_paper`(`paper_id`, `author_id`,`paper_title`, `paper_keywords`,`track`,`authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`,`timestamps`) VALUES ('$paper_id','$_SESSION[author_id]','$paper_title','$paper_keyword','$track','$input_field_name','$input_field_affiliation','$input_field_email','$manuscript_pdf_file_name','1','1','$timestamps')";
@@ -134,7 +95,7 @@ if (isset($_POST['submit'])) {
                 $subject = "New Manuscript Submission";
                 $body = '<p>Dear Author(s),<br/>Thank you very much for uploading the following manuscript to the ICTBJ-2023
             submission system. We shall be in touch with you when the review of the paper will be completed.<br/><br/>
-            <b>Manuscript ID:</b> ICTBJ-2023-' . $paper_id . '<br/>
+            <b>Manuscript ID:</b> ICTBJ-' . $current_year . '-' . $_SESSION['author_id'] . '<br/>
             <b>Track of manuscript:</b> ' . $track . '<br/>
             <b>Title:</b> ' . $paper_title . '<br/>
             <b>Authors:</b> ' . $input_field_name . '<br/>
@@ -149,7 +110,7 @@ if (isset($_POST['submit'])) {
             E-Mail: <a href="ictbj@.com">ictbj@.com</a> <br/>
             Tel. +8801711028510 (WhatsApp)</p>';
                 $send_mail = send_mail($receiver, $subject, $body);
-                ?>
+?>
                 <script>
                     // let text = "Do you really want to submit the paper?";
                     // if (confirm(text) == true) {
@@ -167,11 +128,11 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <div class="container-fluid mt-5">
-    <div class="col-md-11">
+    <h3 class="text-center text-secondary fw-bold">New Manuscript Submission</h3>
+    <div class="col">
         <div class="card pt-5 pb-4 shadow mb-5 px-md-5 px-3 bg-body rounded">
 
             <!-- <div class="card-header"> -->
-            <h3 class="text-center text-secondary fw-bold">New Manuscript Submission</h3>
             <!-- </div> -->
             <!-- <div class="card-body"> -->
             <form action="" method="POST" enctype="multipart/form-data" onsubmit="return confirmPaper()">
@@ -271,7 +232,7 @@ if (isset($_POST['submit'])) {
                 <!-- <div class="row justify-content-center">
             <div class="col-md-4 col-12"> -->
                 <div class="mt-3">
-                    <input type="submit" name="submit" class="form-control btn btn-success fw-bold" value="Submit" onclick="return confirmSubmission()">
+                    <input type="submit" name="submit" class="form-control btn btn-primary fw-bold" value="Submit" onclick="return confirmSubmission()">
                 </div>
             </form>
             <script>

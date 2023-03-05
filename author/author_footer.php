@@ -1,50 +1,52 @@
-<footer class="main-footer w-100 position-absolute bottom-0 start-0 py-2 card_header">
-  <div class="container-fluid">
-    <div class="row text-center gy-3">
-      <div class="col-sm-12 text-sm-start">
-        <p class="mb-0 text-sm text-light text-center"><b>@Powered By: <i>Mehedi Khan Rakib and Sakib Ahmed Shahon</i>, Dept of CSE</b></p>
-      </div>
-
+<!-- Footer -->
+<!-- <footer class="content-footer footer bg-footer-theme">
+  <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+    <div class="mb-2 mb-md-0">
+      Copyright©
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      - All rights reserved by JKKNIU Conference team
+    </div>
+    <div>
     </div>
   </div>
-</footer>
+</footer> -->
+<!-- / Footer -->
+
+<div class="content-backdrop fade"></div>
+</div>
+<!-- Content wrapper -->
+</div>
+<!-- / Layout page -->
 </div>
 
-<!-- JavaScript files-->
-<script src="../framwork/bootstrap.bundle.min.js"></script>
-<script src="js/Chart.min.js"></script>
-<script src="js/just-validate.min.js"></script>
-<script src="js/choices.min.js"></script>
-<script src="js/OverlayScrollbars.min.js"></script>
-<script src="js/charts-home.js"></script>
-<!-- Main File-->
-<script src="js/front.js"></script>
-<script>
-  // ------------------------------------------------------- //
-  //   Inject SVG Sprite -
-  //   see more here
-  //   https://css-tricks.com/ajaxing-svg-sprite/
-  // ------------------------------------------------------ //
-  function injectSvgSprite(path) {
+<!-- Overlay -->
+<div class="layout-overlay layout-menu-toggle"></div>
+</div>
+<!-- / Layout wrapper -->
 
-    var ajax = new XMLHttpRequest();
-    ajax.open("GET", path, true);
-    ajax.send();
-    ajax.onload = function(e) {
-      var div = document.createElement("div");
-      div.className = 'd-none';
-      div.innerHTML = ajax.responseText;
-      document.body.insertBefore(div, document.body.childNodes[0]);
-    }
-  }
-  // this is set to BootstrapTemple website as you cannot
-  // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
-  // while using file:// protocol
-  // pls don't forget to change to your domain :)
-  injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
-</script>
-<!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
+<!-- Core JS -->
+<!-- build:js assets/vendor/js/core.js -->
+<script src="../admin/assets/vendor/libs/jquery/jquery.js"></script>
+<script src="../admin/assets/vendor/libs/popper/popper.js"></script>
+<script src="../admin/assets/vendor/js/bootstrap.js"></script>
+<script src="../admin/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+<script src="../admin/assets/vendor/js/menu.js"></script>
+<!-- endbuild -->
+
+<!-- Vendors JS -->
+<!-- <script src="../admin/assets/vendor/libs/apex-charts/apexcharts.js"></script> -->
+
+<!-- Main JS -->
+<script src="../admin/assets/js/main.js"></script>
+
+<!-- Page JS -->
+<!-- <script src="../admin/assets/js/dashboards-analytics.js"></script> -->
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 
 </html>

@@ -19,7 +19,13 @@ if (isset($_POST['submit_email'])) {
         $body = "<p>Click On This Link to Reset Password <a href='http://localhost/jkkniu_conference_php/reset_password.php?key=" . $author_email . "&reset=" . $author_password . "'>http://localhost/jkkniu_conference_php/reset_password.php?key=" . $author_email . "&reset=" . $author_password . "</a></p>";
         // $body = '<p>Click On This Link to Reset Password <a href="reset_password.php?email=">' . $author_password . '</a></p>';
         $send_mail = send_mail($receiver, $subject, $body);
-        echo "<p>An email has been sent to you with instructions on how to reset your password.</p>";
+
+        echo "<p class='text-success text-bold text-center fs-5 mt-3'>Reset password link has sent to your email address</p>";
+
+        // header("location: forget_password.php");
+        // ob_end_flush();
+    } else {
+        echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Email is not Found</p>";
     }
 }
 ?>
