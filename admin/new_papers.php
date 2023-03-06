@@ -8,11 +8,11 @@
             <!-- </div> -->
             <!-- <div class="card-body"> -->
             <div class="table-responsive">
-                <table class="table table-bordered table-hover text-center">
+                <table id="table" class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th>Serial No</th>
-                            <th width="30%">Paper Title</th>
+                            <th>Paper Title</th>
                             <th>Authors</th>
                             <th>Track</th>
                             <th>File</th>

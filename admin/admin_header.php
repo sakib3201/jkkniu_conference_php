@@ -50,7 +50,6 @@ if (!isset($_SESSION['admin_id'])) {
               <i class="menu-icon tf-icons bx bx-layout"></i>
               <div data-i18n="Extended Abstract">Extended Abstract</div>
             </a>
-
             <ul class="menu-sub">
               <li class="menu-item">
                 <a href="show_all_papers.php" class="menu-link">

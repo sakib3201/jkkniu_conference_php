@@ -9,11 +9,11 @@
     <div class="col">
         <div class="card pt-5 pb-4 shadow mb-5 px-md-5 px-3 bg-body rounded">
             <div class="table-responsive">
-                <table class="table table-bordered table-hover text-center">
+                <table id="table" class="table table-bordered table-hover text-center">
                     <thead>
                         <tr>
                             <th>Serial No</th>
-                            <th width="20%">Name</th>
+                            <th>Name</th>
                             <th>University</th>
                             <th>Post</th>
                             <th>email</th>

@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="../admin/assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css">
+
     <link rel="stylesheet" href="../admin/assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="../admin/assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="../admin/assets/css/demo.css" />
