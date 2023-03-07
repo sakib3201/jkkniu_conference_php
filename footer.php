@@ -32,7 +32,7 @@
             <div class="col-md-3 text-center">
                 <h5>Social</h5>
                 <hr>
-                <h6>Fb page :</h6>
+                <h6>E-mail: ictbj@gmail.com</h6>
             </div>
         </div>
     </div>

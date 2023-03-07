@@ -6,13 +6,13 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title primary_color">Extended abstract submission</h5>
-                <p class="card-text" style="font-size: 1.5rem;">15 March, 2023</p>
+                <p class="card-text" style="font-size: 1.5rem;">31 March, 2023</p>
             </div>
         </div>
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title primary_color">Notification of acceptance</h5>
-                <p class="card-text" style="font-size: 1.5rem;">30 March, 2023</p>
+                <p class="card-text" style="font-size: 1.5rem;">15 April, 2023</p>
             </div>
         </div>
         <div class="card">
