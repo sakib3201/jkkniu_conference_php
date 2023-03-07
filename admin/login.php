@@ -1,5 +1,5 @@
 <?php ob_start(); ?>
-<?php include_once("admin_linker.php") ?>
+<?php include_once("../linker.php") ?>
 <?php include_once("../validate_server_side.php") ?>
 <?php
 if (isset($_POST['login'])) {
