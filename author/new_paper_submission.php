@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     // echo $manuscript_pdf_file_tmp_name;
     $path_info = pathinfo($manuscript_pdf_file_name, PATHINFO_EXTENSION);
     // echo $path_info;
-    $manuscript_pdf_file_name = time() . ".$path_info";
+    $manuscript_pdf_file_name = uniqid() . ".$path_info";
     $manuscript_pdf_file_type = $_FILES['manuscript_pdf']['type'];
     // print_r($_FILES['manuscript_pdf']);
 
@@ -79,9 +79,9 @@ if (isset($_POST['submit'])) {
             $arr = explode(",", $authors_email);
             // print_r($arr);
             $bool = in_array($_SESSION['author_email'], $arr);
-            echo $bool;
+            // echo $bool;
             if ($bool) {
-                echo "<p>One author can upload only one paper</p>";
+                echo "<p class='text-danger text-bold text-center fs-5 mt-3'>One author can upload only one paper</p>";
             }
         } else {
             $insert_qry = "INSERT INTO `new_paper`(`paper_id`, `author_id`,`paper_title`, `paper_keywords`,`track`,`authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`,`timestamps`) VALUES ('$paper_id','$_SESSION[author_id]','$paper_title','$paper_keyword','$track','$input_field_name','$input_field_affiliation','$input_field_email','$manuscript_pdf_file_name','1','1','$timestamps')";
