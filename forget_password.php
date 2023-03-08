@@ -16,7 +16,7 @@ if (isset($_POST['submit_email'])) {
         extract($row);
         $receiver = $author_email;
         $subject = "Reset Password";
-        $body = "<p>Click On This Link to Reset Password <a href='http://localhost/jkkniu_conference_php/reset_password.php?key=" . $author_email . "&reset=" . $author_password . "'>http://localhost/jkkniu_conference_php/reset_password.php?key=" . $author_email . "&reset=" . $author_password . "</a></p>";
+        $body = "<p>Click On This Link to Reset Password <a href='http://localhost/jkkniu_conference_php/reset_password.php?key=" . $author_email . "&reset=" . $author_password . "'>Reset Password</a></p>";
         // $body = '<p>Click On This Link to Reset Password <a href="reset_password.php?email=">' . $author_password . '</a></p>';
         $send_mail = send_mail($receiver, $subject, $body);
 

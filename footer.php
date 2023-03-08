@@ -32,7 +32,10 @@
             <div class="col-md-3 text-center">
                 <h5>Social</h5>
                 <hr>
-                <h6>E-mail: ictbj@gmail.com</h6>
+                <!-- <h6>Facebook page :</h6> -->
+                <!-- <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a> -->
+                <h6>Website: <a href="https://ictbj@jkkniu.edu.bd" class="text-decoration-none" target="_blank">ictbj@jkkniu.edu.bd</a></h6>
+                <h6>Email: <a href="ictbj23@gmail.com" class="text-decoration-none" target="_blank">ictbj23@gmail.com</a></h6>
             </div>
         </div>
     </div>

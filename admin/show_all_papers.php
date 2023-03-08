@@ -17,6 +17,7 @@
                             <th>File</th>
                             <th>Submission Date</th>
                             <th>Status</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -27,12 +28,13 @@
                         $serial_no = 1;
                         if (mysqli_num_rows($run_select_from_new_paper) > 0) {
                             while ($row = mysqli_fetch_assoc($run_select_from_new_paper)) {
+                                extract($row);
                         ?>
                                 <tr>
                                     <td><?php echo $serial_no; ?></td>
-                                    <td><?php echo $row['paper_title'] ?></td>
-                                    <td><?php echo $row['authors_name'] ?></td>
-                                    <td><?php echo $row['track'] ?></td>
+                                    <td><?php echo $paper_title ?></td>
+                                    <td><?php echo $authors_name ?></td>
+                                    <td><?php echo $track ?></td>
                                     <td><a href="../author/document_for_manuscript/<?php echo $row['manuscript_pdf'] ?>"><?php echo $row['manuscript_pdf'] ?></a></td>
                                     <td><?php echo date('d-M-Y', strtotime($row['timestamps'])) ?></td>
                                     <?php
@@ -48,6 +50,9 @@
                                         }
                                     }
                                     ?>
+                                    <td>
+                                        <a href="delete_paper.php?id=<?php echo $id ?>" class="btn btn-primary" onclick="return confirmSubmission()">Delete</a>
+                                    </td>
                                 </tr>
                         <?php
                                 $serial_no++;
@@ -57,6 +62,11 @@
                     </tbody>
                 </table>
             </div>
+            <script>
+                function confirmSubmission() {
+                    return confirm(" Are you sure you want to confirm your submission?");
+                }
+            </script>
         </div>
     </div>
 </div>

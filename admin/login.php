@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include_once("../linker.php") ?>
 <?php include_once("../validate_server_side.php") ?>
 <?php
@@ -25,17 +26,16 @@ if (isset($_POST['login'])) {
                 $_SESSION['admin_name'] = $admin_name;
                 $_SESSION['admin_email'] = $admin_email;
                 header("Location: index.php");
-                exit();
+                ob_end_flush();
             } else {
-                echo "<p>No data found</p>";
+                echo "<p class='text-danger text-bold text-center fs-5 mt-3'>No data found</p>";
             }
         } else {
-            echo "<p>Invalid Password</p>";
+            echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Invalid Password</p>";
         }
     } else {
-        echo "<p>Invalid Email</p>";
+        echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Invalid Email</p>";
     }
-    // }
 }
 ?>
 
@@ -55,16 +55,6 @@ if (isset($_POST['login'])) {
                     <label for="password">Password</label>
                     <input type="password" class="form-control" name="password" id="password" placeholder="Enter password" onkeyup="validatePassword()" required />
                     <span id="password_err" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <div class="custom-control custom-checkbox">
-                        <!-- <input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE["member_login"])) { ?> checked <?php } ?> /> <label for="remember-me">Remember me</label> -->
-                        <!-- <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember" />
-                    <label class="custom-control-label" for="customCheck1">
-                        Remember me
-                    </label> -->
-                    </div>
                 </div>
 
                 <div class="">
