@@ -3,23 +3,25 @@
         Important <span class="secondary_color">Dates</span>
     </h2>
     <div class="card-group rounded shadow text-center" data-aos="fade-up-right">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title primary_color">Extended abstract submission</h5>
-                <p class="card-text" style="font-size: 1.5rem;">31 March, 2023</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title primary_color">Notification of acceptance</h5>
-                <p class="card-text" style="font-size: 1.5rem;">15 April, 2023</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title primary_color">Full paper submission</h5>
-                <p class="card-text" style="font-size: 1.5rem;">30 April, 2023</p>
-            </div>
-        </div>
+        <?php
+        $select_from_new_paper = "SELECT * FROM `important_dates` ";
+        $run_select_from_new_paper = mysqli_query($conn, $select_from_new_paper);
+        if (mysqli_num_rows($run_select_from_new_paper) > 0) {
+            while ($row = mysqli_fetch_assoc($run_select_from_new_paper)) {
+                extract($row);
+                $date_format = date("d F, Y", strtotime($date));
+                // echo $topic;
+                // echo $date_format;
+        ?>
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title primary_color"><?php echo $topic; ?></h5>
+                        <p class="card-text" style="font-size: 1.5rem;"><?php echo $date_format; ?></p>
+                    </div>
+                </div>
+        <?php
+            }
+        }
+        ?>
     </div>
 </div>

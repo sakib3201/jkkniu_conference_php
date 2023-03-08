@@ -1,3 +1,5 @@
+<?php require_once("database/connection.php") ?>
+
 <?php include_once('linker.php') ?>
 
 <body>
