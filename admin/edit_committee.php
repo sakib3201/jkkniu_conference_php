@@ -13,9 +13,9 @@ if (isset($_GET['committee_id'])) {
         extract($row);
 ?>
         <!--Code for adding new committee-->
-        <div class="container-fluid  mt-5">
+        <div class="container-fluid  mt-5 d-flex justify-content-center">
             <!-- <div class="row"> -->
-            <div class="col">
+            <div class="col-md-8 col-12">
                 <h2 class="text-capitalize text-center">Edit committee Details</h2>
                 <form action="update_committee.php" method="post" enctype="multipart/form-data">
                     <!-- <div class="card p-3 mb-5 shadow"> -->

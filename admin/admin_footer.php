@@ -60,13 +60,13 @@
     $('#table').DataTable();
   });
 </script>
-<script>
+<!-- <script>
   $(document).ready(function() {
     $('.summernote').summernote({
       height: 200
     })
   });
-</script>
+</script> -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 

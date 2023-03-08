@@ -100,6 +100,47 @@ if (!isset($_SESSION['admin_id'])) {
               </li>
             </ul>
           </li>
+
+          <!-- Important Dates -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-layout"></i>
+              <div data-i18n="Important Dates">Important Dates</div>
+            </a>
+
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="add_important_dates.php" class="menu-link">
+                  <div data-i18n="Add Dates">Add Dates</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="show_all_dates.php" class="menu-link">
+                  <div data-i18n="All Dates">All Dates</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <!-- Call For Paper -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-layout"></i>
+              <div data-i18n="Call For Paper">Call For Paper</div>
+            </a>
+
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="add_call_for_paper.php" class="menu-link">
+                  <div data-i18n="Add Call For Paper">Add Call For Paper</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="show_all_call_for_papers.php" class="menu-link">
+                  <div data-i18n="All Call For Papers">All Call For Papers</div>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </aside>
       <!-- / Menu -->

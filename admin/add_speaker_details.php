@@ -44,9 +44,9 @@ if (isset($_POST['add_speaker'])) {
 }
 ?>
 <!--Code for adding new speakers-->
-<div class="container-fluid  mt-5">
+<div class="container-fluid  mt-5 d-flex justify-content-center">
     <!-- <div class="row"> -->
-    <div class="col">
+    <div class="col-md-8 col-12">
         <h2 class="text-capitalize text-center">Add New Speaker</h2>
         <form action="" method="post" enctype="multipart/form-data">
             <!-- <div class="card p-3 mb-5 shadow"> -->
