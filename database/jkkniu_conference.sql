@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2023 at 11:59 PM
+-- Generation Time: Mar 09, 2023 at 03:56 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -70,6 +70,28 @@ INSERT INTO `author_information` (`author_id`, `author_name`, `author_email`, `a
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `call_for_paper`
+--
+
+CREATE TABLE `call_for_paper` (
+  `id` int(11) NOT NULL,
+  `image1` varchar(100) NOT NULL,
+  `image2` varchar(100) NOT NULL,
+  `pdf_file` varchar(100) NOT NULL,
+  `doc_file` varchar(100) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `call_for_paper`
+--
+
+INSERT INTO `call_for_paper` (`id`, `image1`, `image2`, `pdf_file`, `doc_file`, `date`) VALUES
+(6, '6408ae69475bb.jpg', '6408ae69475bd.jpg', '6408ae69475be.pdf', '6408ae69475bf.doc', '2023-03-08 15:48:57');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `committee`
 --
 
@@ -92,7 +114,28 @@ CREATE TABLE `committee` (
 --
 
 INSERT INTO `committee` (`committee_id`, `committee_image`, `committee_name`, `committee_email`, `committee_contact`, `committee_password`, `committee_university`, `committee_topic`, `committee_status`, `verification_code`, `email_verified_at`) VALUES
-(1, '1678002855.png', 'Sakib Shahon', 'sakib@gmail.com', '', '', 'JKKNIU', 'Chairman', '0', '', NULL);
+(1, '1678222007.jpg', 'Sakib Ahmed Shahon', 'sakib@gmail.com', '', '', 'JKKNIU', 'Chairman', '0', '', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `important_dates`
+--
+
+CREATE TABLE `important_dates` (
+  `id` int(11) NOT NULL,
+  `topic` varchar(100) NOT NULL,
+  `date` date NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `important_dates`
+--
+
+INSERT INTO `important_dates` (`id`, `topic`, `date`) VALUES
+(2, 'Extended abstract submission', '2023-03-31'),
+(3, 'Notification of acceptance', '2023-04-15'),
+(4, 'Full paper submission', '2023-04-30');
 
 -- --------------------------------------------------------
 
@@ -122,7 +165,7 @@ CREATE TABLE `new_paper` (
 
 INSERT INTO `new_paper` (`id`, `paper_id`, `paper_title`, `author_id`, `paper_keywords`, `track`, `authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`, `timestamps`) VALUES
 (29, '1678007008', 'tester', 14, 'test', 'Business', 'sakib', 'jkkniu', 'sakib3201@gmail.com', '1678007008.doc', 1, 1, '2023-03-04 21:03:28'),
-(30, '1678054034', 'Data Structure and Algorithms', 18, 'Algo,DS', 'Science', 'Mehedi Khan Rakib,Rabiul Islam', 'JKKNIU research society,JKKNIU', 'mkrakib328@gmail.com,mkrcoding1998@gmail.com', '1678054034.docx', 1, 1, '2023-03-05 22:07:14');
+(31, '1678294905', 'Data Structure and Algorithms', 18, 'DSA,Algo', 'Science', 'Mehedi Khan Rakib', 'JKKNIU research society', 'mkrakib328@gmail.com', '6408bf792f0bb.doc', 1, 1, '2023-03-08 05:01:45');
 
 -- --------------------------------------------------------
 
@@ -149,7 +192,7 @@ CREATE TABLE `speakers` (
 --
 
 INSERT INTO `speakers` (`speaker_id`, `speaker_image`, `speaker_name`, `speaker_email`, `speaker_contact`, `speaker_password`, `speaker_country`, `speaker_university`, `speaker_topic`, `speaker_status`, `verification_code`) VALUES
-(5, '1678002411.png', 'Mehedi Khan', 'mkrakib007@gmail.com', '', '', '', 'JKKNIU', 'DSA', '0', '');
+(11, '1678221025.jpg', 'Mehedi Khan', 'mkrcoding1998@gmail.com', '', '', '', 'JKKNIU', 'CSE', '0', '');
 
 --
 -- Indexes for dumped tables
@@ -168,10 +211,22 @@ ALTER TABLE `author_information`
   ADD PRIMARY KEY (`author_id`);
 
 --
+-- Indexes for table `call_for_paper`
+--
+ALTER TABLE `call_for_paper`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `committee`
 --
 ALTER TABLE `committee`
   ADD PRIMARY KEY (`committee_id`);
+
+--
+-- Indexes for table `important_dates`
+--
+ALTER TABLE `important_dates`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `new_paper`
@@ -202,22 +257,34 @@ ALTER TABLE `author_information`
   MODIFY `author_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
+-- AUTO_INCREMENT for table `call_for_paper`
+--
+ALTER TABLE `call_for_paper`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `committee`
 --
 ALTER TABLE `committee`
   MODIFY `committee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `important_dates`
+--
+ALTER TABLE `important_dates`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `new_paper`
 --
 ALTER TABLE `new_paper`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `speakers`
 --
 ALTER TABLE `speakers`
-  MODIFY `speaker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `speaker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
