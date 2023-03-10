@@ -42,6 +42,10 @@
         <?php include_once('important_dates.php') ?>
     </section>
 
+    <section class="HomepageSection mt-5" id="PaymentDetails">
+        <?php include_once('payment_table.php') ?>
+    </section>
+
     <section class="HomepageSection mt-5" id="Schedule">
         <h2 class="text-uppercase fw-bold text-center mb-3" data-aos="fade-up">Conference <span class="secondary_color">Schedule</span> </h2>
         <h3 style="color:darkred" data-aos="fade-up-right" align="center">Coming Soon</h3>
