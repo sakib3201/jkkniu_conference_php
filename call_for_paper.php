@@ -7,7 +7,6 @@
         $row = mysqli_fetch_assoc($run_select_from_new_paper);
         extract($row);
     ?>
-        ?>
         <div class="row">
             <div class="col-md-6" data-aos="fade-up-right">
 
