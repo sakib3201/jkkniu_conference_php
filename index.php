@@ -55,6 +55,9 @@
         <?php include_once('event_venue.php') ?>
     </section>
 
+    <section class="HomepageSection mt-5" id="Sponsors">
+        <?php include_once('sponsors.php') ?>
+    </section>
 
     <footer data-aos="fade-up">
         <?php include_once('footer.php') ?>

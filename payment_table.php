@@ -15,24 +15,35 @@
                 <td>Non SAARC</td>
             </tr>
             <tr>
-                <td>Professor</td>
-                <td>3000 BDT</td>
-                <td>60 USD</td>
-                <td>100 USD</td>
+                <td>Professional (author)</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
             </tr>
             <tr>
-                <td>Student</td>
-                <td>1500 BDT</td>
-                <td>30 USD</td>
-                <td>60 USD</td>
+                <td>Student (author)</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
+            </tr>
+            <tr>
+                <td>Professional (visitor) </td>
+                <td>to be announced</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
+            </tr>
+            <tr>
+                <td>Student (visitor)</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
+                <td>to be announced</td>
             </tr>
         </tbody>
     </table>
 
     <h5 data-aos="fade-up" class="mt-4">Details for payment</h5>
-    <p data-aos="fade-up-right">Here are important details for payment:</p>
+    <p data-aos="fade-up-right">To be announced soon...</p>
     <ul data-aos="fade-up-right">
-        <li>Something pointed out</li>
-        <li>Something else pointed out</li>
+        
     </ul>
 </div>

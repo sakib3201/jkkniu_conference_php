@@ -28,7 +28,7 @@
                     <a class="nav-link" href="#ImportantDates">Important Dates</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#PaymentDetails">Payment</a>
+                    <a class="nav-link" href="#PaymentDetails">Registration</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#Schedule">Schedule</a>
