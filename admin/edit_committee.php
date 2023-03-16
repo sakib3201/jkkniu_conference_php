@@ -41,10 +41,18 @@ if (isset($_GET['committee_id'])) {
                         <img src="../Images/committee_images/<?php echo $committee_image ?>" width="50px" alt="committee_image">
                         <input type="hidden" name="current_image" value="<?php echo $committee_image; ?>" />
                     </div>
-                    <div class="mt-3">
+                    <div class="my-3">
                         <label for="image">New Image</label>
                         <input type="file" name="image" id="image" class="form-control">
                     </div>
+                    <select name="committee_status" id="committee_status" class="form-control">
+                        <option value="0" <?php if(isset($committee_status) && $committee_status==="0"){
+                            echo "selected";
+                        } ?>>Local</option>
+                        <option value="1" <?php if(isset($committee_status) && $committee_status==="1"){
+                            echo "selected";
+                        } ?>>International</option>
+                    </select>
                     <div class="mt-3">
                         <input type="submit" name="edit_committee" value="Edit" class="btn btn-primary">
                     </div>

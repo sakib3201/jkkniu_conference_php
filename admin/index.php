@@ -61,6 +61,12 @@
                 <a href="show_all_papers.php">View</a>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="card shadow p-3 mb-5">
+                <h6>View Authors</h6>
+                <a href="view_authors.php">View</a>
+            </div>
+        </div>
     </div>
 </div>
 <?php include("admin_footer.php"); ?>

@@ -44,6 +44,21 @@ if (!isset($_SESSION['admin_id'])) {
             </a>
           </li>
 
+          <!-- View Authors -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-layout"></i>
+              <div data-i18n="Manage Authors">Manage Authors</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="view_authors.php" class="menu-link">
+                  <div data-i18n="View Authors">View Authors</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+
           <!-- Extended Abstract -->
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
