@@ -18,6 +18,7 @@
                             <th>Post</th>
                             <th>Email</th>
                             <th>Image</th>
+                            <th>Role</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -39,6 +40,12 @@
                                     <td><?php echo $committee_topic ?></td>
                                     <td><?php echo $committee_email ?></td>
                                     <td><img src="../Images/committee_images/<?php echo $row['committee_image'] ?>" width='50px' height='50px'></td>
+                                    <td><?php if(isset($committee_status) && $committee_status==="0"){
+                                        echo "Local";
+                                    }
+                                    else{
+                                        echo "International";
+                                    } ?></td>
                                     <td>
                                         <a href="edit_committee.php?committee_id=<?php echo $committee_id ?>" class="btn btn-primary">Edit</a>
                                     </td>
