@@ -6,6 +6,9 @@
     <header>
         <?php include_once('header.php') ?>
     </header>
+    <section class="HomepageSection m-0" id="NewsScroller">
+        <?php include_once('news_scroller.php')?>
+    </section>
     <section class="HomepageSection" id="HomeBanner">
         <?php include_once('home_banner.php') ?>
     </section>

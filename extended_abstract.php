@@ -29,6 +29,8 @@
 </ol>
 </p>
 <div data-aos="fade-up-right">
-    <b>Keywords:</b>3 to 5 words<br /><br />
-    <b>*TNR = Times New Roman</b>
+    <b>Keywords:</b>3 to 5 words <br>
+    <b>References:</b> Add references, if any, in APA Format, 7th Edition. <br><br>
+
+    <b>*TNR = Times New Roman</b> <br>
 </div>
