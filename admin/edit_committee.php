@@ -1,5 +1,5 @@
-<?php require_once("../database/connection.php") ?>
 <?php include("admin_header.php") ?>
+<?php require_once("../database/connection.php") ?>
 <!-- Name	University	Topic	email	Image	Status -->
 <?php
 if (isset($_GET['committee_id'])) {
