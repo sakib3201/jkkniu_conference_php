@@ -10,7 +10,7 @@ if (isset($_POST['edit_committee'])) {
         // echo $committee_image_tmp_name;
         $path_info = strtolower(pathinfo($committee_image_name, PATHINFO_EXTENSION));
         // echo $path_info;
-        $committee_image_name = time() . ".$path_info";
+        $committee_image_name = uniqid() . ".$path_info";
         $manuscript_pdf_file_type = $_FILES['image']['type'];
         // print_r($_FILES['manuscript_pdf']);
 

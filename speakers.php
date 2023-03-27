@@ -7,15 +7,15 @@
     $run_select_from_new_paper = mysqli_query($conn, $select_from_new_paper);
     if (mysqli_num_rows($run_select_from_new_paper) > 0) {
     ?>
-        <div class="row row-cols-1 row-cols-md-4 g-2 d-flex justify-content-center">
+        <div class="row row-cols-1 row-cols-md-4 g-4 d-flex justify-content-center">
             <?php
             while ($row = mysqli_fetch_assoc($run_select_from_new_paper)) {
                 extract($row);
             ?>
-                <div class="col-md-3">
+                <div class="col-md-4">
                     <div class="card speaker_hover our-team">
                         <div class="picture">
-                            <img src="Images/logo.png" class="card-img-top" alt="..." style="height:30vh; object-fit:contain;">
+                            <img src="Images/speaker_images/<?php echo $speaker_image ?>" class="card-img-top" alt="..." style="height:30vh; object-fit:contain;">
                         </div>
                         <div class="card-body">
                             <h5 class="card-title primary_color"><?php echo $speaker_name ?></h5>

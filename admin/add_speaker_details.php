@@ -13,7 +13,7 @@ if (isset($_POST['add_speaker'])) {
         // echo $speaker_image_tmp_name;
         $path_info = strtolower(pathinfo($speaker_image_name, PATHINFO_EXTENSION));
         echo $path_info;
-        $speaker_image_name = time() . ".$path_info";
+        $speaker_image_name = uniqid() . ".$path_info";
         $manuscript_pdf_file_type = $_FILES['image']['type'];
         // print_r($_FILES['manuscript_pdf']);
 

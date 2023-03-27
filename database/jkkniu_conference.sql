@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2023 at 05:37 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Generation Time: Mar 27, 2023 at 06:24 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -114,9 +113,9 @@ CREATE TABLE `committee` (
 --
 
 INSERT INTO `committee` (`committee_id`, `committee_image`, `committee_name`, `committee_email`, `committee_contact`, `committee_password`, `committee_university`, `committee_topic`, `committee_status`, `verification_code`, `email_verified_at`) VALUES
-(3, '1678953806.png', 'Member-1', 'member1@gmail.com', '', '', 'JKKNIU', 'M-1', '0', '', NULL),
-(8, '1679379485.jpg', 'Professor A B M Shawkat Ali', 'shawkatali@gmail.com', '', '', 'The University Of Fiji', 'International Advisor', '1', '', NULL),
-(9, '1679384862.jpeg', 'Dr Mohammad Ali Moni', 'ahadalimoni@gmail.com', '', '', 'The University of Queensland , Australia', 'Senior Lecturer & Senior Fellow', '1', '', NULL);
+(3, '6421c1bc7676b.png', 'Member-1', 'member1@gmail.com', '', '', 'JKKNIU', 'M-1', '0', '', NULL),
+(8, '6421c193ee4e0.jpg', 'Professor A B M Shawkat Ali', 'shawkatali@gmail.com', '', '', 'The University Of Fiji', 'International Advisor', '1', '', NULL),
+(9, '6421c1b056240.jpeg', 'Dr Mohammad Ali Moni', 'ahadalimoni@gmail.com', '', '', 'The University of Queensland , Australia', 'Senior Lecturer & Senior Fellow', '1', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -138,6 +137,26 @@ INSERT INTO `important_dates` (`id`, `topic`, `date`) VALUES
 (2, 'Extended abstract submission', '2023-03-31'),
 (3, 'Notification of acceptance', '2023-04-15'),
 (4, 'Full paper submission', '2023-04-30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `news_scroller`
+--
+
+CREATE TABLE `news_scroller` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `details` longtext NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `news_scroller`
+--
+
+INSERT INTO `news_scroller` (`id`, `title`, `details`, `created_at`) VALUES
+(1, 'News Marquee', '<p style=\"font-weight: 700;padding: 0\">* All presented paper will be included in ICTBJ-2023 proceedings and <span style=\"font-weight: 800\">digitally published by</span> <span style=\"color:darkred;font-weight: 800;\">Unipress Australia</span> <span style=\"font-weight: 800\">* &quot;Best paper award&quot;</span> will be given to student author and professional author for each track. *</p>\r\n', '2023-03-27 15:28:30');
 
 -- --------------------------------------------------------
 
@@ -194,7 +213,9 @@ CREATE TABLE `speakers` (
 --
 
 INSERT INTO `speakers` (`speaker_id`, `speaker_image`, `speaker_name`, `speaker_email`, `speaker_contact`, `speaker_password`, `speaker_country`, `speaker_university`, `speaker_topic`, `speaker_status`, `verification_code`) VALUES
-(11, '1678221025.jpg', 'Mehedi Khan', 'mkrcoding1998@gmail.com', '', '', '', 'JKKNIU', 'CSE', '0', '');
+(12, '6421c2375d860.png', 'Speaker-1', 's-1@gmail.com', '', '', '', 'Random', 'will be published soon', '0', ''),
+(13, '6421c2d7f11bb.png', 'Speaker-2', 's-2@gmail.com', '', '', '', 'Random', 'will be published soon', '0', ''),
+(14, '6421c309cbfec.png', 'Speaker-3', 's-3@gmail.com', '', '', '', 'Random', 'will be published soon', '0', '');
 
 --
 -- Indexes for dumped tables
@@ -228,6 +249,12 @@ ALTER TABLE `committee`
 -- Indexes for table `important_dates`
 --
 ALTER TABLE `important_dates`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `news_scroller`
+--
+ALTER TABLE `news_scroller`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -277,6 +304,12 @@ ALTER TABLE `important_dates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT for table `news_scroller`
+--
+ALTER TABLE `news_scroller`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `new_paper`
 --
 ALTER TABLE `new_paper`
@@ -286,7 +319,7 @@ ALTER TABLE `new_paper`
 -- AUTO_INCREMENT for table `speakers`
 --
 ALTER TABLE `speakers`
-  MODIFY `speaker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `speaker_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
