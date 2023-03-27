@@ -1,13 +1,10 @@
 <?php
 // session_start();
+ob_start();
 require_once("../database/connection.php");
 if (!isset($_SESSION['admin_id'])) {
-?>
-  <script>
-    window.location = "login.php";
-  </script>
-<?php
-  exit();
+  header('location: login.php');
+  ob_end_flush();
 }
 ?>
 
@@ -42,6 +39,41 @@ if (!isset($_SESSION['admin_id'])) {
               <i class="menu-icon tf-icons bx bx-home-circle"></i>
               <div data-i18n="Analytics">Dashboard</div>
             </a>
+          </li>
+
+          <!-- View News Scroll -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-layout"></i>
+              <div data-i18n="News Scroll">News Scroll</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="add_news_scroller.php" class="menu-link">
+                  <div data-i18n="Add News Scroller">Add News Scroller</div>
+                </a>
+              </li>
+              <li class="menu-item">
+                <a href="view_news_scroller.php" class="menu-link">
+                  <div data-i18n="View News Scroll">View News Scroll</div>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+          <!-- View Authors -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-layout"></i>
+              <div data-i18n="Manage Authors">Manage Authors</div>
+            </a>
+            <ul class="menu-sub">
+              <li class="menu-item">
+                <a href="view_authors.php" class="menu-link">
+                  <div data-i18n="View Authors">View Authors</div>
+                </a>
+              </li>
+            </ul>
           </li>
 
           <!-- Extended Abstract -->

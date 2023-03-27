@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-<?php require_once("../database/connection.php") ?>
 <?php include("admin_header.php") ?>
 <!-- Name	University	Topic	email	Image	Status -->
 <?php
@@ -29,7 +27,7 @@ if (isset($_POST['add_committee'])) {
         if ($count_error > 0) {
             echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Error occurs</p>";
         } else {
-            $insert_sql = "INSERT INTO `committee`(`committee_name`,`committee_university`,`committee_topic`,`committee_email`,`committee_image`) VALUES('$name','$university','$post','$email','$committee_image_name')";
+            $insert_sql = "INSERT INTO `committee`(`committee_name`,`committee_university`,`committee_topic`,`committee_email`,`committee_image`, `committee_status`) VALUES('$name','$university','$post','$email','$committee_image_name','$committee_status')";
             $run_insert_qry = mysqli_query($conn, $insert_sql);
             if ($run_insert_qry) {
                 move_uploaded_file($committee_image_tmp_name, '../Images/committee_images/' . $committee_image_name);
@@ -67,10 +65,15 @@ if (isset($_POST['add_committee'])) {
                 <label for="email">Email</label>
                 <input type="email" name="email" id="email" class="form-control" required>
             </div>
-            <div class="mt-3">
+            <div class="my-3">
                 <label for="image">Image</label>
                 <input type="file" name="image" id="image" class="form-control" required>
             </div>
+            <label for="committee_status">Select Committee</label>
+            <select name="committee_status" id="committee_status" class="form-control">
+                <option value="0">Local</option>
+                <option value="1">International</option>
+            </select>
             <div class="mt-3">
                 <input type="submit" name="add_committee" value="Add" class="btn btn-primary">
             </div>

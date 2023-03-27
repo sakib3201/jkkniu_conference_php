@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-<?php require_once("../database/connection.php") ?>
 <?php include("admin_header.php") ?>
 <?php
 if (isset($_GET['id'], $_GET['image1'], $_GET['image2'], $_GET['pdf_file'], $_GET['doc_file'])) {

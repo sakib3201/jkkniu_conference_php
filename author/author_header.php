@@ -1,13 +1,9 @@
 <?php
-// session_start();
+ob_start();
 require_once("../database/connection.php");
 if (!isset($_SESSION['author_id'])) {
-?>
-  <script>
-    window.location = "../index.php";
-  </script>
-<?php
-  exit();
+  header('location: ../index.php');
+  ob_end_flush();
 }
 ?>
 

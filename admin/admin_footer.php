@@ -60,6 +60,16 @@
     $('#table').DataTable();
   });
 </script>
+<script src="../ckeditor/ckeditor.js"></script>
+<script>
+  // Initialize CKEditor
+
+  CKEDITOR.replace('long_desc', {
+    width: "100%",
+    height: "200px",
+    // filebrowserUploadUrl: 'upload.php'
+  });
+</script>
 <!-- <script>
   $(document).ready(function() {
     $('.summernote').summernote({

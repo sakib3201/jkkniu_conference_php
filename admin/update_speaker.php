@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-<?php require_once("../database/connection.php") ?>
 <?php include("admin_header.php") ?>
 <?php
 if (isset($_POST['edit_speaker'])) {

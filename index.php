@@ -6,6 +6,9 @@
     <header>
         <?php include_once('header.php') ?>
     </header>
+    <section class="HomepageSection m-0" id="NewsScroller">
+        <?php include_once('news_scroller.php') ?>
+    </section>
     <section class="HomepageSection" id="HomeBanner">
         <?php include_once('home_banner.php') ?>
     </section>
@@ -48,13 +51,16 @@
 
     <section class="HomepageSection mt-5" id="Schedule">
         <h2 class="text-uppercase fw-bold text-center mb-3" data-aos="fade-up">Conference <span class="secondary_color">Schedule</span> </h2>
-        <h3 style="color:darkred" data-aos="fade-up-right" align="center">Coming Soon</h3>
+        <h3 style="color:darkred" data-aos="fade-up-right" class="text-center">Coming Soon</h3>
     </section>
 
     <section class="HomepageSection mt-5" id="EventVenue">
         <?php include_once('event_venue.php') ?>
     </section>
 
+    <section class="HomepageSection mt-5" id="Sponsors">
+        <?php include_once('sponsors.php') ?>
+    </section>
 
     <footer data-aos="fade-up">
         <?php include_once('footer.php') ?>

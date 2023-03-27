@@ -1,5 +1,3 @@
-<?php ob_start(); ?>
-<?php require_once("../database/connection.php") ?>
 <?php include("admin_header.php") ?>
 <?php
 if (isset($_POST['edit_committee'])) {
@@ -27,7 +25,7 @@ if (isset($_POST['edit_committee'])) {
             echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Error occurs</p>";
         } else {
             unlink('../Images/committee_images/' . $current_image);
-            $update_sql = "UPDATE `committee` SET `committee_name`='$name',`committee_university`='$university',`committee_topic`='$post',`committee_email`='$email',`committee_image`='$committee_image_name' WHERE committee_id='$id'";
+            $update_sql = "UPDATE `committee` SET `committee_name`='$name',`committee_university`='$university',`committee_topic`='$post',`committee_email`='$email',`committee_image`='$committee_image_name',`committee_status`='$committee_status' WHERE committee_id='$id'";
             $run_insert_qry = mysqli_query($conn, $update_sql);
             if ($run_insert_qry) {
                 move_uploaded_file($committee_image_tmp_name, '../Images/committee_images/' . $committee_image_name);
