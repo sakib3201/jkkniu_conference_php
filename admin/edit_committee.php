@@ -1,4 +1,5 @@
 <?php include("admin_header.php") ?>
+<?php require_once("../database/connection.php") ?>
 <!-- Name	University	Topic	email	Image	Status -->
 <?php
 if (isset($_GET['committee_id'])) {
@@ -45,12 +46,21 @@ if (isset($_GET['committee_id'])) {
                         <input type="file" name="image" id="image" class="form-control">
                     </div>
                     <select name="committee_status" id="committee_status" class="form-control">
+<<<<<<< HEAD
                         <option value="0" <?php if (isset($committee_status) && $committee_status === "0") {
                                                 echo "selected";
                                             } ?>>Local</option>
                         <option value="1" <?php if (isset($committee_status) && $committee_status === "1") {
                                                 echo "selected";
                                             } ?>>International</option>
+=======
+                        <option value="0" <?php if(isset($committee_status) && $committee_status==="0"){
+                            echo "selected";
+                        } ?>>Local</option>
+                        <option value="1" <?php if(isset($committee_status) && $committee_status==="1"){
+                            echo "selected";
+                        } ?>>International</option>
+>>>>>>> 10b902758a92b82f89998d43ae8853ff8bd5f53d
                     </select>
                     <div class="mt-3">
                         <input type="submit" name="edit_committee" value="Edit" class="btn btn-primary">

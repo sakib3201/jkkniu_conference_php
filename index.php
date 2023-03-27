@@ -7,7 +7,11 @@
         <?php include_once('header.php') ?>
     </header>
     <section class="HomepageSection m-0" id="NewsScroller">
+<<<<<<< HEAD
         <?php include_once('news_scroller.php') ?>
+=======
+        <?php include_once('news_scroller.php')?>
+>>>>>>> 10b902758a92b82f89998d43ae8853ff8bd5f53d
     </section>
     <section class="HomepageSection" id="HomeBanner">
         <?php include_once('home_banner.php') ?>

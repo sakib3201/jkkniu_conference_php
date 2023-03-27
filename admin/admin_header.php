@@ -41,6 +41,7 @@ if (!isset($_SESSION['admin_id'])) {
             </a>
           </li>
 
+<<<<<<< HEAD
           <!-- View News Scroll -->
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -61,6 +62,8 @@ if (!isset($_SESSION['admin_id'])) {
             </ul>
           </li>
 
+=======
+>>>>>>> 10b902758a92b82f89998d43ae8853ff8bd5f53d
           <!-- View Authors -->
           <li class="menu-item">
             <a href="javascript:void(0);" class="menu-link menu-toggle">
