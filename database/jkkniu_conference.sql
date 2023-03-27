@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2023 at 03:56 AM
+-- Generation Time: Mar 27, 2023 at 05:37 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -114,7 +114,9 @@ CREATE TABLE `committee` (
 --
 
 INSERT INTO `committee` (`committee_id`, `committee_image`, `committee_name`, `committee_email`, `committee_contact`, `committee_password`, `committee_university`, `committee_topic`, `committee_status`, `verification_code`, `email_verified_at`) VALUES
-(1, '1678222007.jpg', 'Sakib Ahmed Shahon', 'sakib@gmail.com', '', '', 'JKKNIU', 'Chairman', '0', '', NULL);
+(3, '1678953806.png', 'Member-1', 'member1@gmail.com', '', '', 'JKKNIU', 'M-1', '0', '', NULL),
+(8, '1679379485.jpg', 'Professor A B M Shawkat Ali', 'shawkatali@gmail.com', '', '', 'The University Of Fiji', 'International Advisor', '1', '', NULL),
+(9, '1679384862.jpeg', 'Dr Mohammad Ali Moni', 'ahadalimoni@gmail.com', '', '', 'The University of Queensland , Australia', 'Senior Lecturer & Senior Fellow', '1', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -266,7 +268,7 @@ ALTER TABLE `call_for_paper`
 -- AUTO_INCREMENT for table `committee`
 --
 ALTER TABLE `committee`
-  MODIFY `committee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `committee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `important_dates`
