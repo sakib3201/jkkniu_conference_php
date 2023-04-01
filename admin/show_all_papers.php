@@ -14,7 +14,9 @@
                             <th>Paper Title</th>
                             <th>Paper Keywords</th>
                             <th>Track</th>
-                            <th>Authors</th>
+                            <th>Authors Name</th>
+                            <th>Authors Email</th>
+                            <th>Authors Affiliation</th>
                             <th>File</th>
                             <th>Submission Date</th>
                             <th>Status</th>
@@ -37,6 +39,8 @@
                                     <td><?php echo $paper_keywords ?></td>
                                     <td><?php echo $track ?></td>
                                     <td><?php echo $authors_name ?></td>
+                                    <td><?php echo $authors_email ?></td>
+                                    <td><?php echo $authors_affiliation ?></td>
                                     <td><a href="../author/document_for_manuscript/<?php echo $manuscript_pdf ?>"><?php echo $manuscript_pdf ?></a></td>
                                     <td><?php echo date('d-M-Y', strtotime($timestamps)) ?></td>
                                     <?php

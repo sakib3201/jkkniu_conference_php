@@ -177,9 +177,9 @@ if (isset($_POST['submit'])) {
                     <label for="select_number_of_authors"><b>Number of Authors:</b></label>
                     <div class="input-group">
                         <select class="form-control" name="paper_authors" id="select_number_of_authors" onchange="selectNumberOfaAuthors()" required>
-                            <option value="0">Please Select Any Number</option>
+                            <option value="">Please Select Any Number</option>
                             <?php
-                            for ($i = 1; $i <= 5; $i++) {
+                            for ($i = 1; $i <= 10; $i++) {
                             ?>
                                 <option value="<?php echo $i ?>"><?php echo $i; ?></option>
                             <?php
@@ -202,7 +202,7 @@ if (isset($_POST['submit'])) {
                     <label for="manuscript_pdf"><b>Select Document For Manuscript: <span class="text-danger">*</span></b></label>
                     <div class="input-group mt-2">
                         <br>
-                        <input type="file" class="form-control" name="manuscript_pdf" id="manuscript_pdf" onchange="uploadManuscript()">
+                        <input type="file" class="form-control" name="manuscript_pdf" id="manuscript_pdf" onchange="uploadManuscript()" required>
                     </div>
                 </div>
 

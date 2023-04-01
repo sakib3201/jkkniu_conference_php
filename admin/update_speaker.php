@@ -1,4 +1,5 @@
 <?php include("admin_header.php") ?>
+<!-- <?php include_once 'functions/getImage.php'; ?> -->
 <?php
 if (isset($_POST['edit_speaker'])) {
     extract($_POST);

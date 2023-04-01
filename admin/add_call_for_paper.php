@@ -27,8 +27,6 @@ if (isset($_POST['add_call_for_paper'])) {
         $doc_file_name = uniqid() . ".$path_info4";
         // $manuscript_pdf_file_type1 = $_FILES['image1']['type'];
         // $manuscript_pdf_file_type2 = $_FILES['image2']['type'];
-        // print_r($_FILES['manuscript_pdf']);
-
 
         $count_error = 0;
         $arr1 = array("jpg", "png", "jpeg");
