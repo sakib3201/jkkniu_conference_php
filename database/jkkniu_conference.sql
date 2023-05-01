@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2023 at 06:24 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Generation Time: May 01, 2023 at 08:04 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `admin_information` (
   `admin_name` varchar(100) NOT NULL,
   `admin_email` varchar(100) NOT NULL,
   `admin_password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin_information`
@@ -55,7 +55,7 @@ CREATE TABLE `author_information` (
   `author_password` varchar(200) NOT NULL,
   `verification_code` varchar(100) NOT NULL,
   `email_verified_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `author_information`
@@ -79,14 +79,14 @@ CREATE TABLE `call_for_paper` (
   `pdf_file` varchar(100) NOT NULL,
   `doc_file` varchar(100) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `call_for_paper`
 --
 
 INSERT INTO `call_for_paper` (`id`, `image1`, `image2`, `pdf_file`, `doc_file`, `date`) VALUES
-(6, '6408ae69475bb.jpg', '6408ae69475bd.jpg', '6408ae69475be.pdf', '6408ae69475bf.doc', '2023-03-08 15:48:57');
+(6, '644e8944ce1b4.jpg', '644e8944ce1b8.jpg', '644e8944ce1b9.', '644e8944ce1ba.', '2023-04-30 15:29:08');
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ CREATE TABLE `committee` (
   `committee_status` enum('0','1') NOT NULL DEFAULT '0',
   `verification_code` varchar(100) NOT NULL,
   `email_verified_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `committee`
@@ -127,7 +127,7 @@ CREATE TABLE `important_dates` (
   `id` int(11) NOT NULL,
   `topic` varchar(100) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `important_dates`
@@ -149,7 +149,7 @@ CREATE TABLE `news_scroller` (
   `title` varchar(255) NOT NULL,
   `details` longtext NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `news_scroller`
@@ -178,7 +178,7 @@ CREATE TABLE `new_paper` (
   `paper_status` int(2) NOT NULL,
   `count` int(11) NOT NULL,
   `timestamps` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `new_paper`
@@ -187,6 +187,33 @@ CREATE TABLE `new_paper` (
 INSERT INTO `new_paper` (`id`, `paper_id`, `paper_title`, `author_id`, `paper_keywords`, `track`, `authors_name`, `authors_affiliation`, `authors_email`, `manuscript_pdf`, `paper_status`, `count`, `timestamps`) VALUES
 (29, '1678007008', 'tester', 14, 'test', 'Business', 'sakib', 'jkkniu', 'sakib3201@gmail.com', '1678007008.doc', 1, 1, '2023-03-04 21:03:28'),
 (31, '1678294905', 'Data Structure and Algorithms', 18, 'DSA,Algo', 'Science', 'Mehedi Khan Rakib', 'JKKNIU research society', 'mkrakib328@gmail.com', '6408bf792f0bb.doc', 1, 1, '2023-03-08 05:01:45');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `payment_form`
+--
+
+CREATE TABLE `payment_form` (
+  `id` int(11) NOT NULL,
+  `paper_id` varchar(255) NOT NULL,
+  `paper_title` varchar(255) NOT NULL,
+  `author_name` varchar(255) NOT NULL,
+  `author_address` varchar(255) NOT NULL,
+  `author_country` varchar(255) NOT NULL,
+  `author_category` varchar(255) NOT NULL,
+  `payment_form_image` varchar(255) NOT NULL,
+  `captcha` varchar(255) NOT NULL,
+  `payment_status` enum('0','1') NOT NULL DEFAULT '0',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payment_form`
+--
+
+INSERT INTO `payment_form` (`id`, `paper_id`, `paper_title`, `author_name`, `author_address`, `author_country`, `author_category`, `payment_form_image`, `captcha`, `payment_status`, `created_at`) VALUES
+(12, '1678294905', 'Sixth Paper', 'MK Rakib', '83/1/5 Mymensingh', 'Bangladesh', 'Student(JKKNIU)', '644ff5a78b1e9.png', 'xpnk5y', '0', '2023-05-01 17:23:55');
 
 -- --------------------------------------------------------
 
@@ -206,7 +233,7 @@ CREATE TABLE `speakers` (
   `speaker_topic` varchar(50) NOT NULL,
   `speaker_status` enum('0','1') NOT NULL DEFAULT '0',
   `verification_code` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `speakers`
@@ -264,6 +291,12 @@ ALTER TABLE `new_paper`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `payment_form`
+--
+ALTER TABLE `payment_form`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `speakers`
 --
 ALTER TABLE `speakers`
@@ -314,6 +347,12 @@ ALTER TABLE `news_scroller`
 --
 ALTER TABLE `new_paper`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
+-- AUTO_INCREMENT for table `payment_form`
+--
+ALTER TABLE `payment_form`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `speakers`
