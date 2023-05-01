@@ -173,6 +173,27 @@ if (!isset($_SESSION['admin_id'])) {
               </li>
             </ul>
           </li>
+
+          <!-- Manage Payment Form -->
+          <li class="menu-item">
+            <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bx-layout"></i>
+              <div data-i18n="Manage Payment Form">Manage Payment Form</div>
+            </a>
+
+            <ul class="menu-sub">
+              <!-- <li class="menu-item">
+                <a href="add_call_for_paper.php" class="menu-link">
+                  <div data-i18n="Add Payment Form">Add Payment Form</div>
+                </a>
+              </li> -->
+              <li class="menu-item">
+                <a href="view_payment_form.php" class="menu-link">
+                  <div data-i18n="View Payment Forms">View Payment Forms</div>
+                </a>
+              </li>
+            </ul>
+          </li>
         </ul>
       </aside>
       <!-- / Menu -->

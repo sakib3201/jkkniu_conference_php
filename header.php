@@ -39,6 +39,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="login.php">Submission</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="add_payment_form.php">Form</a>
+                </li>
             </ul>
         </div>
         <div class="nav-item">

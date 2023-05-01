@@ -5,7 +5,7 @@ function getImage()
         $current_image = $_POST["current_image"];
     }
 
-    if (isset($_FILES["image"]["name"])) {
+    if (isset($_FILES["image1"]["name"], $_FILES["image2"]["name"])) {
         $imageName = $_FILES["image"]["name"];
         $tmpImage = $_FILES["image"]["tmp_name"];
         $size = $_FILES["image"]["size"];

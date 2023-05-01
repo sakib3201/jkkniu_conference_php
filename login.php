@@ -36,11 +36,16 @@ if (isset($_POST['login'])) {
                 // }
                 // echo "<p>Your login logic here</p>";
                 // if ($email && $password) {
-                $_SESSION['author_id'] = $author_id;
-                $_SESSION['author_name'] = $author_name;
-                $_SESSION['author_email'] = $author_email;
-                header("Location: author/index.php");
-                ob_end_flush();
+                if (!empty($email_verified_at)) {
+                    $_SESSION['author_id'] = $author_id;
+                    $_SESSION['author_name'] = $author_name;
+                    $_SESSION['author_email'] = $author_email;
+                    header("Location: author/index.php");
+                    ob_end_flush();
+                } else {
+                    header("Location: email-verification.php?email=" . $email);
+                    ob_end_flush();
+                }
             }
         } else {
             echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Invalid Password</p>";

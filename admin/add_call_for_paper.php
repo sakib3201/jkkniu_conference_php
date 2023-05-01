@@ -1,16 +1,24 @@
-<?php include("admin_header.php") ?>
+<?php include_once("admin_header.php") ?>
+<?php include_once("functions/uploadImage.php") ?>
 <!-- Name	University	Topic	email	Image	Status -->
 <?php
 if (isset($_POST['add_call_for_paper'])) {
     extract($_POST);
     // echo "<pre>";
     // print_r($_POST);
-    // print_r($_FILES);
+    // echo "<pre>";
+    // print_r($_FILES['image1']);
+    // echo "<br>";
+    // print_r($_FILES['image2']);
+    // echo "<pre>";
+
     if (isset($_FILES['image1'], $_FILES['image2'], $_FILES['pdf_file'], $_FILES['doc_file'])) {
         $image1_name = $_FILES['image1']['name'];
         $image1_tmp_name = $_FILES['image1']['tmp_name'];
+        $image1_size = $_FILES['image1']['size'];
         $image2_name = $_FILES['image2']['name'];
         $image2_tmp_name = $_FILES['image2']['tmp_name'];
+        $image2_size = $_FILES['image2']['size'];
         $pdf_file_name = $_FILES['pdf_file']['name'];
         $pdf_file_tmp_name = $_FILES['pdf_file']['tmp_name'];
         $doc_file_name = $_FILES['doc_file']['name'];
@@ -28,18 +36,27 @@ if (isset($_POST['add_call_for_paper'])) {
         // $manuscript_pdf_file_type1 = $_FILES['image1']['type'];
         // $manuscript_pdf_file_type2 = $_FILES['image2']['type'];
 
-        $count_error = 0;
+        // $count_error = 0;
         $arr1 = array("jpg", "png", "jpeg");
         $arr2 = array("jpg", "png", "jpeg");
         $arr3 = array("pdf");
         $arr4 = array("doc", "docx");
-        if (!in_array($path_info1, $arr1) || !in_array($path_info2, $arr2) || !in_array($path_info3, $arr3) || !in_array($path_info4, $arr4)) {
-            $count_error++;
+
+        if (!in_array($path_info1, $arr1) || !in_array($path_info2, $arr2)) {
+            // $count_error++;
+            echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Image format is not supported</p>";
+        } else if ($image1_size >= 5242880 || $image2_size >= 5242880) {
+            echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Image size cannot be larger than 5 MB</p>";
+        } else if (!in_array($path_info3, $arr3) || !in_array($path_info4, $arr4)) {
+            echo "<p class='text-danger text-bold text-center fs-5 mt-3'>File format is not supported</p>";
         }
 
-        if ($count_error > 0) {
-            echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Error occurs</p>";
-        } else {
+        // if ($count_error > 0) {
+        //     echo "<p class='text-danger text-bold text-center fs-5 mt-3'>Error occurs</p>";
+        // }
+        else {
+            $image1_name = compress_image($image1_tmp_name, $image1_name, 70);
+            $image2_name = compress_image($image2_tmp_name, $image2_name, 70);
             $insert_sql = "INSERT INTO `call_for_paper`(`image1`,`image2`,`pdf_file`,`doc_file`) VALUES('$image1_name','$image2_name','$pdf_file_name','$doc_file_name')";
             $run_insert_qry = mysqli_query($conn, $insert_sql);
             if ($run_insert_qry) {
